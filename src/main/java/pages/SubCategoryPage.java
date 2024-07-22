@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class SubCategoryPage {
 	public WebDriver driver;
 	public SubCategoryPage(WebDriver driver) {
@@ -15,7 +17,7 @@ public class SubCategoryPage {
  @FindBy(xpath="//a[@onclick='click_button(1)']") WebElement newButton ;
  @FindBy(xpath="//select[@class='form-control selectpicker']") WebElement dropdownField ;
  @FindBy(xpath="//select[@class='form-control selectpicker']//child::option[text()='Electronics']") WebElement selectedOption ;
- @FindBy(xpath="//input[@class='form-control']") WebElement categoryField ;
+ @FindBy(xpath="//input[@class='form-control']") WebElement enterCategoryField ;
  @FindBy(xpath="//input[@name='main_img']") WebElement chooseFileField ;
  @FindBy(xpath="//button[@name='create']") WebElement saveButton;
 
@@ -29,19 +31,18 @@ public void clickNewButton() {
 public void clickDropdownField() {
 	dropdownField.click();
 }
-public boolean selectAnOption() {
-	boolean optionSelected= selectedOption.isSelected();
-	return optionSelected;
+public void selectAnOption(String dropdownValue) {
+	PageUtility pageutility=new PageUtility();
+	pageutility.selectValueUsingSelectByVisibleText(selectedOption,dropdownValue);
 }
-public void clickCategoryField() {
-	categoryField.click();
-}
-public void chooseFile() {
-	chooseFileField.sendKeys("C:\\Users\\Emvigo\\Downloads\\Document18.pdf");
+public void clickCategoryField(String categoryField) {
+	enterCategoryField.sendKeys(categoryField);
 }
 public void clickSaveButton() {
 	saveButton.click();
 }
-
-
+public boolean verifySelectedOptionSelected() {
+	boolean optionSelected= selectedOption.isSelected();
+	return optionSelected;
+}
 }

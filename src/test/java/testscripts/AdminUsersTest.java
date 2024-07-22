@@ -24,26 +24,8 @@ public class AdminUsersTest extends Base {
         boolean isUserFound = adminuserspage.verifySearchedAdminUser();
         assertTrue(isUserFound, "The searched admin user was not found in the search results.");
     }
-   /* @Test
-    public void verifyWhetherUserAbleToFindTheSearchedElementInManagePages() {
-    	String username = "admin";
-        String password = "admin";
-        String titleName ="muhsina";
-        SearchPage searchpage = new SearchPage(driver);
-        searchpage.enterUsernameOnUsernameField(username);
-        searchpage.enterPasswordOnPasswordField(password);
-        searchpage.clickSignInButton();
-        boolean isNavigatedToHomePage = searchpage.verifyHomePageNavigated();
-        assertTrue(isNavigatedToHomePage, "User is not navigated to the Home Page after sign in.");
-        searchpage.verifyManagePagesNavigated();
-        searchpage.clickOnManageSearchButton();
-        searchpage.enterTitleOnTitleField(titleName);
-        searchpage.clickOnManageSubmitSearchButton();
-    	boolean isTieleFound= searchpage.verifySearchedTitle();
-    	assertTrue(isTieleFound, "The searched title not found in the searched results");
-    }*/
-    
-    @Test
+  
+     @Test
     public void verifyWhetherUserAbleToResetTheSearchedElement() {
         String username = "admin";
         String password = "admin";

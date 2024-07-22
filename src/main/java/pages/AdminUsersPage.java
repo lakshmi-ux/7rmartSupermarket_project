@@ -17,11 +17,6 @@ import org.openqa.selenium.support.PageFactory;
     @FindBy(xpath="//label[text()='Username']//following-sibling::input[@class='form-control']") WebElement verifyAdminUsername;
     @FindBy(xpath="//button[@value='sr']") WebElement submitSearchButton;
     
-   /* @FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-page']//child::i[@class='fas fa-arrow-circle-right']") WebElement managePages;
-    @FindBy(xpath="//a[@onclick='click_button(2)']") WebElement manageSearchButton;
-    @FindBy(xpath="//input[@placeholder='Title']") WebElement enterTitle;
-    @FindBy(xpath="//button[@name='Search']") WebElement submitManageSearchButton;*/
-    
     @FindBy(xpath="//a[@class='btn btn-rounded btn-warning']") WebElement resetUser;
     
     @FindBy(xpath="//a[@onclick='click_button(1)']") WebElement newButton;
@@ -49,25 +44,7 @@ import org.openqa.selenium.support.PageFactory;
 		return isSearchedUserFound;
    }
     
-    //new TC
-   /* public void verifyManagePagesNavigated() {
-    	managePages.click();
-    }
-    public void clickOnManageSearchButton() {
-    	manageSearchButton.click();
-    }
-    public void enterTitleOnTitleField(String titleField ) {
-    	enterTitle.sendKeys(titleField);
-    }
-    public void clickOnManageSubmitSearchButton() {
-    	submitManageSearchButton.click();
-    	String manageSearchedValue= submitManageSearchButton.getText();
-    }
-    public boolean verifySearchedTitle() {
-    	boolean isSearchedTitleFound= enterTitle.isDisplayed();
-		return isSearchedTitleFound;
-   }*/
-    //new TC 2
+   
     public void clickOnResetButton() {
     	resetUser.click();
     }
@@ -75,7 +52,7 @@ import org.openqa.selenium.support.PageFactory;
     	boolean isUserGotReset= verifyAdminUsername.isEnabled();
 		return isUserGotReset;
    }
-    //add button TC
+   
     public void clcikOnNewButton() {
     	newButton.click();
     }
