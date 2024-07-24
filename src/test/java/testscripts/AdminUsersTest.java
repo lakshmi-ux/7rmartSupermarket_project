@@ -12,15 +12,10 @@ public class AdminUsersTest extends Base {
         String password = "admin";
         String adminUsername = "AldoAdmin";
         LoginPage loginpage= new LoginPage(driver);
-        loginpage.enterUsernameOnUsernameField(username);
-        loginpage.enterPasswordOnPasswordField(password);
-        loginpage.clickOnSignInButton();
+        loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
         loginpage.verifyHomePageNavigated();
         AdminUsersPage adminuserspage = new AdminUsersPage(driver);
-        adminuserspage.verifyAdminUsersNavigated();
-        adminuserspage.clickOnSearchButton();
-        adminuserspage.enterAdminUsernameOnUsernameField(adminUsername);
-        adminuserspage.clickOnSubmitSearchButton();
+        adminuserspage.verifyAdminUsersNavigated().clickOnSearchButton().enterAdminUsernameOnUsernameField(adminUsername).clickOnSubmitSearchButton();
         boolean isUserFound = adminuserspage.verifySearchedAdminUser();
         assertTrue(isUserFound, "The searched admin user was not found in the search results.");
     }
@@ -31,15 +26,10 @@ public class AdminUsersTest extends Base {
         String password = "admin";
         String adminUsername = "Ramu";
         LoginPage loginpage= new LoginPage(driver);
-        loginpage.enterUsernameOnUsernameField(username);
-        loginpage.enterPasswordOnPasswordField(password);
-        loginpage.clickOnSignInButton();
+        loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
         loginpage.verifyHomePageNavigated();
         AdminUsersPage adminuserspage = new AdminUsersPage(driver);
-        adminuserspage.verifyAdminUsersNavigated();
-        adminuserspage.clickOnSearchButton();
-        adminuserspage.enterAdminUsernameOnUsernameField(adminUsername);
-        adminuserspage.clickOnResetButton();
+        adminuserspage.verifyAdminUsersNavigated().clickOnSearchButton().enterAdminUsernameOnUsernameField(adminUsername).clickOnResetButton();
         boolean isResetDone = adminuserspage.verifyUserGotReset();
         assertTrue(isResetDone, "User not able to reset an searched user");        
    }
@@ -50,20 +40,15 @@ public class AdminUsersTest extends Base {
         String password = "admin";
         String newUser ="Nila";
         String newUserPassword="thara123";
+        String dropDownOption="Staff";
         LoginPage loginpage= new LoginPage(driver);
-        loginpage.enterUsernameOnUsernameField(username);
-        loginpage.enterPasswordOnPasswordField(password);
-        loginpage.clickOnSignInButton();
+        loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
         loginpage.verifyHomePageNavigated();
         AdminUsersPage adminuserspage = new AdminUsersPage(driver);
-        adminuserspage.verifyAdminUsersNavigated();
-        adminuserspage.clcikOnNewButton();
-        adminuserspage.enterNewAdminUsername(newUser);
-        adminuserspage.enterNewAdminPassword(newUserPassword);
-        adminuserspage.clcikOnSaveButton();
-       boolean isAddingDone = adminuserspage.verifyNewUserGotAdded();
-       assertTrue(isAddingDone, "User not able to add a new user");
-       boolean isAddingDoneThroughPassword = adminuserspage.verifyNewUserGotAddedThroughPassword();
-       assertTrue(isAddingDoneThroughPassword, "User not able to add a new user");
+        adminuserspage.verifyAdminUsersNavigated().clcikOnNewButton().enterNewAdminUsername(username).enterNewAdminPassword(newUserPassword).selectAnOption(dropDownOption).clcikOnSaveButton();
+        boolean isAddingDone = adminuserspage.verifyNewUserGotAdded();
+        assertTrue(isAddingDone, "User not able to add a new user");
+        boolean isAddingDoneThroughPassword = adminuserspage.verifyNewUserGotAddedThroughPassword();
+        assertTrue(isAddingDoneThroughPassword, "User not able to add a new user");
    }
 }

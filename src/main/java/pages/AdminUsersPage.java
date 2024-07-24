@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
    public class AdminUsersPage {
 	public WebDriver driver;
 	public AdminUsersPage(WebDriver driver) {
@@ -23,21 +25,26 @@ import org.openqa.selenium.support.PageFactory;
     @FindBy(xpath="//input[@id='username']") WebElement usernameField;
     @FindBy(xpath="//input[@id='password']") WebElement passwordField;
     @FindBy(xpath="//button[@name='Create']") WebElement saveButton;
+    @FindBy(xpath="//select[@id='user_type']") WebElement dropDown;
     
     
   
-    public void verifyAdminUsersNavigated() {
+    public AdminUsersPage verifyAdminUsersNavigated() {
     	adminUsers.click();
+    	return this;
     }
-    public void clickOnSearchButton() {
+    public AdminUsersPage clickOnSearchButton() {
     	searchButton.click();
+    	return this;
     }
-    public void enterAdminUsernameOnUsernameField(String adminUsername) {
+    public AdminUsersPage enterAdminUsernameOnUsernameField(String adminUsername) {
     	verifyAdminUsername.sendKeys(adminUsername);
+    	return this;
     }
-    public void clickOnSubmitSearchButton() {
+    public AdminUsersPage clickOnSubmitSearchButton() {
     	submitSearchButton.click();
     	String searchedValue= submitSearchButton.getText();
+    	return this;
    }
     public boolean verifySearchedAdminUser() {
     	boolean isSearchedUserFound= verifyAdminUsername.isDisplayed();
@@ -45,25 +52,35 @@ import org.openqa.selenium.support.PageFactory;
    }
     
    
-    public void clickOnResetButton() {
+    public AdminUsersPage clickOnResetButton() {
     	resetUser.click();
+    	return this;
     }
     public boolean verifyUserGotReset() {
     	boolean isUserGotReset= verifyAdminUsername.isEnabled();
 		return isUserGotReset;
    }
    
-    public void clcikOnNewButton() {
+    public AdminUsersPage clcikOnNewButton() {
     	newButton.click();
+    	return this;
     }
-    public void enterNewAdminUsername(String username) {
+    public AdminUsersPage enterNewAdminUsername(String username) {
     	usernameField.sendKeys(username);
+    	return this;
     }
-    public void enterNewAdminPassword(String password) {
+    public AdminUsersPage enterNewAdminPassword(String password) {
     	passwordField.sendKeys(password);
+    	return this;
     }
-    public void clcikOnSaveButton() {
+    public AdminUsersPage selectAnOption(String VisibleText) {
+    	PageUtility pageutility= new PageUtility();
+    	pageutility.selectValueUsingSelectByVisibleText(dropDown, VisibleText);
+    	return this;
+    }
+    public AdminUsersPage clcikOnSaveButton() {
     	saveButton.click();
+    	return this;
     }
     public boolean verifyNewUserGotAdded() {
     	boolean isUserGotAdded = usernameField.isDisplayed();

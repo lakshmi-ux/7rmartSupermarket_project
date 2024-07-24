@@ -19,14 +19,17 @@ public class LoginPage {
     @FindBy(linkText="7rmart supermarket") WebElement homePageReturnLogin;
     
     
-    public void enterUsernameOnUsernameField(String username) {
+    public LoginPage enterUsernameOnUsernameField(String username) {
     	verifyUsername.sendKeys(username);
+    	return this;
     }
-    public void enterPasswordOnPasswordField(String password) {
+    public LoginPage enterPasswordOnPasswordField(String password) {
     	verifyPassword.sendKeys(password);
+    	return this;
     }
-    public void clickOnSignInButton() {
+    public LoginPage clickOnSignInButton() {
     	signInButton.click();
+    	return this;
     }
     public boolean verifyHomePageNavigated() {
     	boolean isHomepageNavigated=homePage.isDisplayed();
