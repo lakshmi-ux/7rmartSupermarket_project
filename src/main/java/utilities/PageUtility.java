@@ -46,9 +46,42 @@ public class PageUtility {
 		actions.dragAndDrop(dragObject, dropObject).build().perform();
 	}
 	
-	public void alertActions(WebDriver driver) {
-		String alertValue=driver.switchTo().alert().getText();
+	public String getAlert(WebDriver driver) {
+		String getAlertText=driver.switchTo().alert().getText();
+		return getAlertText;
 	}
+	public void toAcceptAlert(WebDriver driver) {
+		driver.switchTo().alert().accept();
+	}
+	public void toDismissAlert(WebDriver driver) {
+		driver.switchTo().alert().dismiss();
+	}
+	public void toEnterTextToAlert(WebDriver driver, String valuePass ) {
+		driver.switchTo().alert().sendKeys(valuePass);
+		driver.switchTo().alert().accept();
+	}
+	
+	public void switchOnIframeBox(WebDriver driver,WebElement iframeObject) {
+		driver.switchTo().frame(iframeObject);
+	}
+	public void clickOnIframe(WebElement elementinIFrame) {
+		elementinIFrame.click();
+	}
+	
+	public String getTagName(WebElement element) {
+        return element.getTagName();
+    }
+    public String getText(WebElement element) {
+        return element.getText();
+    }
+	public String getAttributeValue(WebElement element, String attribute) {
+        return element.getAttribute(attribute);
+    }
+	public String getCssValue(WebElement element, String cssValue) {
+        return element.getCssValue(cssValue);
+    }
+	
+	
 	
 
 }
