@@ -31,11 +31,11 @@ public class LoginPage {
     	signInButton.click();
     	return this;
     }
-    public boolean verifyHomePageNavigated() {
+    public boolean isHomePageNavigated() {
     	boolean isHomepageNavigated=homePage.isDisplayed();
     	return isHomepageNavigated;
     }
-    public boolean verifyHomePageNotNavigated() {
+    public boolean isHomePageNotNavigated() {
     	boolean isHomepageNotNavigated=homePageReturnLogin.isDisplayed();
     	return isHomepageNotNavigated;
     }

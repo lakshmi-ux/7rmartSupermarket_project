@@ -1,25 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-23T23:36:27 IST" name="Default suite" finished-at="2024-07-23T23:36:34 IST" duration-ms="7323">
+  <suite started-at="2024-08-07T11:23:59 IST" name="Suite" finished-at="2024-08-07T11:24:14 IST" duration-ms="14789">
     <groups>
+      <group name="smoke">
+        <method signature="AdminUsersTest.verifyWhetherUserAbleToResetTheSearchedElement()[pri:0, instance:testscripts.AdminUsersTest@563e4951]" name="verifyWhetherUserAbleToResetTheSearchedElement" class="testscripts.AdminUsersTest"/>
+      </group> <!-- smoke -->
+      <group name="sanity">
+        <method signature="AdminUsersTest.verifyWhetherUserAbleToFindTheSearchedElementInAdminUsers()[pri:0, instance:testscripts.AdminUsersTest@563e4951]" name="verifyWhetherUserAbleToFindTheSearchedElementInAdminUsers" class="testscripts.AdminUsersTest"/>
+        <method signature="AdminUsersTest.verifyWhetherUserAbleToResetTheSearchedElement()[pri:0, instance:testscripts.AdminUsersTest@563e4951]" name="verifyWhetherUserAbleToResetTheSearchedElement" class="testscripts.AdminUsersTest"/>
+      </group> <!-- sanity -->
     </groups>
-    <test started-at="2024-07-23T23:36:27 IST" name="Default test" finished-at="2024-07-23T23:36:34 IST" duration-ms="7323">
+    <test started-at="2024-08-07T11:23:59 IST" name="Test" finished-at="2024-08-07T11:24:14 IST" duration-ms="14789">
       <class name="testscripts.AdminUsersTest">
-        <test-method is-config="true" signature="initialBrowser()[pri:0, instance:testscripts.AdminUsersTest@74fe5c40]" started-at="2024-07-23T23:36:27 IST" name="initialBrowser" finished-at="2024-07-23T23:36:31 IST" duration-ms="4460" status="PASS">
+        <test-method is-config="true" signature="settup(java.lang.String)[pri:0, instance:testscripts.AdminUsersTest@563e4951]" started-at="2024-08-07T11:23:59 IST" name="settup" finished-at="2024-08-07T11:24:03 IST" duration-ms="3961" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initialBrowser -->
-        <test-method signature="verifyWhetherUserAbleToAddANewUser()[pri:0, instance:testscripts.AdminUsersTest@74fe5c40]" started-at="2024-07-23T23:36:31 IST" name="verifyWhetherUserAbleToAddANewUser" finished-at="2024-07-23T23:36:34 IST" duration-ms="2585" status="PASS">
+        </test-method> <!-- settup -->
+        <test-method signature="verifyWhetherUserAbleToFindTheSearchedElementInAdminUsers()[pri:0, instance:testscripts.AdminUsersTest@563e4951]" started-at="2024-08-07T11:24:03 IST" name="verifyWhetherUserAbleToFindTheSearchedElementInAdminUsers" finished-at="2024-08-07T11:24:07 IST" duration-ms="4046" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyWhetherUserAbleToAddANewUser -->
-        <test-method is-config="true" signature="quit()[pri:0, instance:testscripts.AdminUsersTest@74fe5c40]" started-at="2024-07-23T23:36:34 IST" name="quit" finished-at="2024-07-23T23:36:34 IST" duration-ms="239" status="PASS">
+        </test-method> <!-- verifyWhetherUserAbleToFindTheSearchedElementInAdminUsers -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:testscripts.AdminUsersTest@563e4951]" started-at="2024-08-07T11:24:07 IST" name="closeBrowser" finished-at="2024-08-07T11:24:08 IST" duration-ms="509" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyWhetherUserAbleToFindTheSearchedElementInAdminUsers status=SUCCESS method=AdminUsersTest.verifyWhetherUserAbleToFindTheSearchedElementInAdminUsers()[pri:0, instance:testscripts.AdminUsersTest@563e4951] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- quit -->
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="settup(java.lang.String)[pri:0, instance:testscripts.AdminUsersTest@563e4951]" started-at="2024-08-07T11:24:08 IST" name="settup" finished-at="2024-08-07T11:24:11 IST" duration-ms="2937" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- settup -->
+        <test-method signature="verifyWhetherUserAbleToResetTheSearchedElement()[pri:0, instance:testscripts.AdminUsersTest@563e4951]" started-at="2024-08-07T11:24:11 IST" name="verifyWhetherUserAbleToResetTheSearchedElement" finished-at="2024-08-07T11:24:14 IST" duration-ms="2705" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyWhetherUserAbleToResetTheSearchedElement -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:testscripts.AdminUsersTest@563e4951]" started-at="2024-08-07T11:24:14 IST" name="closeBrowser" finished-at="2024-08-07T11:24:14 IST" duration-ms="467" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyWhetherUserAbleToResetTheSearchedElement status=SUCCESS method=AdminUsersTest.verifyWhetherUserAbleToResetTheSearchedElement()[pri:0, instance:testscripts.AdminUsersTest@563e4951] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
       </class> <!-- testscripts.AdminUsersTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

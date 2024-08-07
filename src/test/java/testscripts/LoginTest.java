@@ -2,46 +2,30 @@ package testscripts;
 
 import static org.testng.Assert.assertTrue;
 import org.testng.annotations.Test;
+
+import automation_core.Base;
+import constants.Constants;
+import constants.Messages;
+import data_provider.DataProviders;
 import pages.LoginPage;
+import utilities.ExcelUtility;
 
 public class LoginTest extends Base{
 @Test
 	
 	public void verifyWhetherUserAbleToLoginUsingValidUsernameAndPassword() {
-		String usernameValue= "admin";
-		String passwordValue= "admin";
+		String usernameValue=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
+		String passwordValue=ExcelUtility.readStringData(0, 1, Constants.LOGINPAGE) ;
 		LoginPage loginpage= new LoginPage(driver);
 		loginpage.enterUsernameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue).clickOnSignInButton();
-		boolean isNavigatedToHomePage= loginpage.verifyHomePageNavigated();
-		assertTrue(isNavigatedToHomePage, "Homepage not displayed even username and password is valid");
+		boolean isNavigatedToHomePage= loginpage.isHomePageNavigated();
+		assertTrue(isNavigatedToHomePage, Messages.LOGIN_FAIL);
 }
-@Test
-   public void verifyWhetherUserUnableToLoginWithInvalidUsernameAndValidPassword() {
-	    String usernameValue= "adminology";
-		String passwordValue= "admin";
-		LoginPage loginpage= new LoginPage(driver);
-		loginpage.enterUsernameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue).clickOnSignInButton();
-		boolean isNavigatedToSignInPage= loginpage.verifyHomePageNotNavigated();
-		assertTrue(isNavigatedToSignInPage, "User navigated to homepage even username is invalid and password is valid");
+@Test(dataProvider="InvalidUserCredentials", dataProviderClass=DataProviders.class)
+   public void verifyWhetherUserLoginWithInvalidCredentials(String username, String password) {
+	    LoginPage loginpage= new LoginPage(driver);
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
+		boolean isNavigatedToSignInPage= loginpage.isHomePageNotNavigated();
+		assertTrue(isNavigatedToSignInPage, Messages.LOGIN_SUCESS);
    }
-@Test
-   public void verifyWhetherUserUnableToLoginWithValidUsernameAndInvalidPassword() {
-	        String usernameValue= "admin";
-	 		String passwordValue= "admin12333";
-	 		LoginPage loginpage= new LoginPage(driver);
-	 		loginpage.enterUsernameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue).clickOnSignInButton();
-	 		boolean isNavigatedToSignInPage= loginpage.verifyHomePageNotNavigated();
-	 		assertTrue(isNavigatedToSignInPage, "User navigated to homepage even password is invalid and username is valid");
-	}
-@Test
-   public void verifyWhetherUserUnableToLoginWithBothInvalidUsernameAndPassword(){
-	    String usernameValue= "admin0000";
-		String passwordValue= "admin12333";
-		LoginPage loginpage= new LoginPage(driver);
-		loginpage.enterUsernameOnUsernameField(usernameValue).enterPasswordOnPasswordField(passwordValue).clickOnSignInButton();
-		boolean isNavigatedToSignInPage= loginpage.verifyHomePageNotNavigated();
-		assertTrue(isNavigatedToSignInPage, "User navigated to homepage even both username and password is invalid");
-	   
-   }
-
 }

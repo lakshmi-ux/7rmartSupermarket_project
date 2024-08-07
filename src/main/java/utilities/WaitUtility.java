@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class WeightUtility {
+public class WaitUtility {
 	public static final long EXPLICITWAIT=10;
 	public static final long IMPLICITWAIT=10;
 	
@@ -42,5 +42,12 @@ public class WeightUtility {
  	            .ignoring(NoSuchElementException.class);
  	    fluentWait.until(ExpectedConditions.visibilityOf(element));
     }
+    public void PresenceOfFluentWait(WebDriver driver, WebElement element) {
+   	 Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
+	            .withTimeout(Duration.ofSeconds(30))
+	            .pollingEvery(Duration.ofSeconds(5))
+	            .ignoring(NoSuchElementException.class);
+	    fluentWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy((By) element));
+   }
     
 }
