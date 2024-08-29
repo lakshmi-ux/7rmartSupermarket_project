@@ -29,8 +29,6 @@ import utilities.RandomDataUtility;
     @FindBy(xpath="//div[@class='alert alert-success alert-dismissible'//child::h5[text()=' Alert!]") WebElement alertBox;
     @FindBy(xpath="//tbody//tr[1]") WebElement tableValue;
     
-  //  @FindBy(xpath="//tbody//tr[1]") WebElement searchedValue;
-    
    public AdminUsersPage verifyAdminUsersNavigated() {
     	adminUsers.click();
     	return this;

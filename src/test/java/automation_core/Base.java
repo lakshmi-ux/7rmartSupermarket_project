@@ -41,7 +41,7 @@ public class Base {
 		public void settup(String browserName) {
 			initializeBrowser(browserName);
 		}
-		@AfterMethod(alwaysRun=true) //eppum test run cheythalum run akan vendi---- alwaysrun=true koduthathe
+		@AfterMethod(alwaysRun=true) 
 		public void closeBrowser(ITestResult result) throws IOException {
 			if(result.getStatus()==ITestResult.FAILURE) {
 				takeScreenshot(result);
@@ -56,4 +56,4 @@ public class Base {
 
 }
 
-//file:///C:/Users/Dell/git/7rmart_project/TestReport/Extent.html
+
